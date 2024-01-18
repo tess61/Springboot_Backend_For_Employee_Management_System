@@ -1,5 +1,8 @@
 package net.javaguides.ems.controller;
 
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +38,13 @@ public class EmployeeController {
 		EmployeeDto employeeDto =  employeeService.getEMployeeById(employeId);
 		
 		return ResponseEntity.ok(employeeDto);
+	}
+
+	//Build Get All Employees REST API 
+	@GetMapping
+	public ResponseEntity<List<EmployeeDto>> getAllEmployees(){
+		List<EmployeeDto> employees = employeeService.getAllEmployees();
+		return ResponseEntity.ok(employees);
 	}
 	
 }
